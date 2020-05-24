@@ -1,9 +1,10 @@
 import React from 'react'
 import { getImages } from "../../shared/utils"
+
 class Detail extends React.Component {
      renderComent = (commentProducts) => {
-          return commentProducts.map((commentProduct) => {
-               return <div className="comment-item">
+          return commentProducts.map((commentProduct, ind) => {
+               return <div className="comment-item" key={commentProduct._id}>
                     <ul>
                          <li><b>{commentProduct.name}</b></li>
                          <li>{commentProduct.createdAt}</li>
@@ -16,8 +17,6 @@ class Detail extends React.Component {
      }
      render() {
           const { detailProduct, commentProducts, inputValueForm, onChangeInput, onSubmit } = this.props
-          //console.log(detailProduct);
-          //console.log(commentProducts);
           return (<> return <div id="product" key={detailProduct._id}>
                <div id="product-head" className="row">
                     <div id="product-img" className="col-lg-6 col-md-6 col-sm-12">
@@ -63,34 +62,31 @@ class Detail extends React.Component {
                <div id="comment" className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                          <h3>Bình luận sản phẩm</h3>
-                         <form method="post">
+                         <form method="post" onSubmit={onSubmit}>
                               <div className="form-group">
                                    <label>Tên:</label>
-                                   <input onChange={onChangeInput} value={inputValueForm.name} name="name" required type="text" className="form-control" />
+                                   <input onChange={onChangeInput}  name="name" required type="text" className="form-control" />
                               </div>
                               <div className="form-group">
                                    <label>Email:</label>
-                                   <input onChange={onChangeInput} value={inputValueForm.mail} name="mail" required type="email" className="form-control" id="pwd" />
+                                   <input  onChange={onChangeInput}  name="email" required type="email" className="form-control" id="pwd" />
                               </div>
                               <div className="form-group">
                                    <label>Nội dung:</label>
-                                   <textarea onChange={onChangeInput} value={inputValueForm.details} name="details" required rows={8} className="form-control" defaultValue={""} />
+                                   <textarea element="textarea"  onChange={onChangeInput}  name="content" required rows={8} className="form-control" defaultValue={""} />
                               </div>
-                              <button onClick={onSubmit} type="submit" name="sbm" className="btn btn-primary">Gửi</button>
+                              <button type="submit" name="sbm" className="btn btn-primary">Gửi</button>
                          </form>
                     </div>
                </div>
 
                <div id="comments-list" className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
-
                          {this.renderComent(commentProducts)}
-
                     </div>
                </div>
 
           </div>
-
                <div id="pagination">
                     <ul className="pagination">
                          <li className="page-item"><a className="page-link" href="#">Trang trước</a></li>
