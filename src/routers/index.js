@@ -12,7 +12,7 @@ class AppRouter extends React.Component {
                     <Route path="/detail/:id" component={DetailContainer} />
                     <Route path="/category" component={CategoryContainer} />
                     <Route path="/cart" component={CartContainer} />
-                    <Route path="/search" component={SearchContainer} />
+                    <Route path="/search" exact component={SearchContainer} />
                     <Route path="/success" component={OderSuccessContainer} />
                     <Route path="*" render={()=> <Redirect to="/404"></Redirect>} />
                     <Route path="/404" component={NotFoundContainer}/>

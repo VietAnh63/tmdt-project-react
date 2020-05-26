@@ -1,11 +1,21 @@
 import React from 'react'
-
+import {withRouter, Redirect} from 'react-router-dom'
 class Header extends React.Component {
      constructor(props) {
           super(props);
-          this.state = {  }
+          this.state = { 
+            keyword: ""
+           }
+     }
+     onSubmitSearch = (e) => {
+      e.preventDefault()
+      const {history} = this.props
+      history.push(`/search?q=${this.state.keyword}`)
+      //return <Redirect path="/search" />
      }
      render() { 
+       console.log("A",this.props);
+       
           return ( 
                <div id="header">
                <div className="container">
@@ -14,9 +24,9 @@ class Header extends React.Component {
                      <h1><a href="#"><img className="img-fluid" src="images/logo.png" /></a></h1>
                    </div>
                    <div id="search" className="col-lg-6 col-md-6 col-sm-12">
-                     <form className="form-inline">
-                       <input className="form-control mt-3" type="search" placeholder="Tìm kiếm" aria-label="Search" />
-                       <button className="btn btn-danger mt-3" type="submit">Tìm kiếm</button>
+                     <form className="form-inline" >
+                       <input className="form-control mt-3" onChange={(e)=>this.setState({keyword:e.target.value})} value={this.state.keyword} type="search" placeholder="Tìm kiếm" aria-label="Search" />
+                       <button className="btn btn-danger mt-3" onClick={this.onSubmitSearch} type="submit">Tìm kiếm</button>
                      </form>
                    </div>
                    <div id="cart" className="col-lg-3 col-md-3 col-sm-12">
@@ -24,7 +34,7 @@ class Header extends React.Component {
                    </div>
                  </div>
                </div>
-               <button className="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#menu">
+               <button className="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#menu" >
                  <span className="navbar-toggler-icon" />
                </button>
              </div>
@@ -32,4 +42,4 @@ class Header extends React.Component {
      }
 }
  
-export default Header;
+export default withRouter(Header);

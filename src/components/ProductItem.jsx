@@ -3,6 +3,7 @@ import {getImages} from "../shared/utils"
 import {NavLink} from 'react-router-dom'
 
 
+
 //pass {item} as item = item.item --> Jump 1 level
 const ProductItem = ({item})=>{
      console.log("item", item)
