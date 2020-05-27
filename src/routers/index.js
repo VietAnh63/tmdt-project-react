@@ -10,7 +10,7 @@ class AppRouter extends React.Component {
           return (<Switch>
                     <Route path="/" exact component={HomePageContainer}/>
                     <Route path="/detail/:id" component={DetailContainer} />
-                    <Route path="/category" component={CategoryContainer} />
+                    <Route path="/categories/:id" exact component={CategoryContainer} />
                     <Route path="/cart" component={CartContainer} />
                     <Route path="/search" exact component={SearchContainer} />
                     <Route path="/success" component={OderSuccessContainer} />

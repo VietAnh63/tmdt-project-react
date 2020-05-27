@@ -9,12 +9,13 @@ class Header extends React.Component {
      }
      onSubmitSearch = (e) => {
       e.preventDefault()
+      console.log("this.props=>",this.props)
       const {history} = this.props
-      history.push(`/search?q=${this.state.keyword}`)
+      history.push(`/search?a=${this.state.keyword}&p=${this.state.page}`)
       //return <Redirect path="/search" />
      }
      render() { 
-       console.log("A",this.props);
+
        
           return ( 
                <div id="header">

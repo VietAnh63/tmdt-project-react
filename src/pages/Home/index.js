@@ -26,7 +26,7 @@ class HomeContainer extends React.PureComponent {
                 featureProducts,
                 loading:true
             })
-        },1)
+        },1000)
         // this.setState({
         //     newProducts,
         //     featureProducts

@@ -6,16 +6,23 @@ import {getProducts} from '../../services/server'
 class SearchContainer extends React.Component {
 
      state = {
-          products: []
+          products: [],
+          page: 1
      }
 
      componentDidMount(){
+          
+          console.log("this.props,aaaa->",this.props);
           const searchParams = new URLSearchParams(this.props.location.search)
-          const q = searchParams.get("q")
-
-          getProducts({params:{name:q, limit:20}}).then(({data})=>{
+          const a = searchParams.get("a")
+          const p = searchParams.get("p")
+          console.log("a",a);
+          console.log("b",p)
+          
+          getProducts({params:{name:a, page:p, limit:12}}).then(({data})=>{
                this.setState({
-                    products: data.data.docs
+                    products: data.data.docs,
+                    page:p
                })
           })
 
@@ -23,12 +30,14 @@ class SearchContainer extends React.Component {
 
 
      getProducts = () => {
+         
           const searchParams = new URLSearchParams(this.props.location.search)
-          const q = searchParams.get("q")
-
-          getProducts({params:{name:q, limit:20}}).then(({data})=>{
+          const a = searchParams.get("a")
+          const p = searchParams.get("p")
+          getProducts({params:{name:a, page:p, limit:12 }}).then(({data})=>{
                this.setState({
-                    products: data.data.docs
+                    products: data.data.docs,
+                    page: p
                })
           })
      }

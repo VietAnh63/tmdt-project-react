@@ -8,7 +8,37 @@ import Loader from 'react-loader-spinner'
 const LoaderProduct = () => {
      //console.log("item", item)
      return (<><div className="product-item card text-center">
-          <Loader type="Puff"
+          <Loader type="Oval"
+               color="#00BFFF"
+               height={100}
+               width={100} />
+     </div>
+     <div className="product-item card text-center">
+          <Loader type="Oval"
+               color="#00BFFF"
+               height={100}
+               width={100} />
+     </div>
+     <div className="product-item card text-center">
+          <Loader type="Oval"
+               color="#00BFFF"
+               height={100}
+               width={100} />
+     </div>
+     <div className="product-item card text-center">
+          <Loader type="Oval"
+               color="#00BFFF"
+               height={100}
+               width={100} />
+     </div>
+     <div className="product-item card text-center">
+          <Loader type="Oval"
+               color="#00BFFF"
+               height={100}
+               width={100} />
+     </div>
+     <div className="product-item card text-center">
+          <Loader type="Oval"
                color="#00BFFF"
                height={100}
                width={100} />
